@@ -1,0 +1,50 @@
+/* Keep the canvas proportional when the desktop sidebar shares the screen. */
+.editor-map { min-width: 0; overflow: hidden; }
+.editor-canvas { width: 100%; max-width: 1020px; aspect-ratio: 1020 / 700; }
+.editor-canvas canvas { display: block; width: 100%; height: auto; transform-origin: 0 0; touch-action: none; -webkit-touch-callout: none; user-select: none; }
+.mobile-controls, .mobile-panel-close { display: none; }
+.editor-context-menu { max-height: 70vh; overflow-y: auto; }
+
+@media (max-width: 1023px) {
+  html, body, #root { height: 100%; overflow: hidden; }
+  .editor-shell { --mobile-controls-height: 138px; height: 100vh; height: 100dvh; position: relative; flex-direction: column; }
+  .editor-map { flex: 1; height: auto; min-height: 0; padding: env(safe-area-inset-top) env(safe-area-inset-right) 0 env(safe-area-inset-left); }
+  .editor-canvas { flex-shrink: 0; max-width: min(100%, calc((100dvh - 154px - env(safe-area-inset-top) - env(safe-area-inset-bottom)) * 1020 / 700)); }
+  .editor-shell > .editor-tools { display: none; }
+  .editor-shell > .editor-tools.is-open {
+    display: flex; position: absolute; inset: auto 0 calc(var(--mobile-controls-height) + env(safe-area-inset-bottom)) 0;
+    max-height: 60vh; max-height: min(60dvh, calc(100dvh - 170px - env(safe-area-inset-top) - env(safe-area-inset-bottom)));
+    padding: 12px max(16px, env(safe-area-inset-right)) 16px max(16px, env(safe-area-inset-left));
+    gap: 12px; background: #fff; border-radius: 18px 18px 0 0; box-shadow: 0 -8px 32px #17245326;
+    overflow-y: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch;
+  }
+  .editor-tools > *, .editor-tools .w-300px { width: 100%; min-width: 0; }
+  .editor-tools > .flex-1 { flex: none; height: auto; }
+  .editor-tools .overflow-y-scroll { flex: none; overflow: visible; padding-right: 0; border-left: 0; }
+  .editor-tools .bg-gradient-to-b { display: none; }
+  .mobile-panel-close { display: block; width: 100%; min-height: 44px; flex-shrink: 0; border: 0; border-radius: 8px; background: #eef3ff; color: #2457c5; font-weight: 600; }
+  .mobile-controls { display: flex; flex-direction: column; flex-shrink: 0; gap: 6px; padding: 8px max(10px, env(safe-area-inset-right)) calc(8px + env(safe-area-inset-bottom)) max(10px, env(safe-area-inset-left)); background: #fff; z-index: 15; box-shadow: 0 -2px 12px #1724531a; }
+  .mobile-hint { font-size: 12px; line-height: 22px; text-align: center; color: #526079; white-space: nowrap; }
+  .mobile-palette, .mobile-actions { display: flex; gap: 6px; min-width: 0; }
+  .mobile-controls button { flex: 1; min-width: 0; min-height: 44px; padding: 0 4px; border: 1px solid #dce2ee; border-radius: 8px; background: #f8faff; color: #283653; font-size: 14px; touch-action: manipulation; }
+  .mobile-palette button { padding-inline: 1px; font-size: 13px; }
+  .mobile-controls button[aria-pressed="true"], .mobile-controls .mobile-tools-toggle { background: #1677ff; border-color: #1677ff; color: #fff; }
+  .mobile-controls button:disabled { opacity: .4; }
+  .mobile-controls button:focus-visible, .mobile-panel-close:focus-visible { outline: 3px solid #91caff; outline-offset: 1px; }
+  .editor-tools .ant-btn, .ant-modal .ant-btn, .ant-popconfirm .ant-btn { height: auto; min-height: 44px; white-space: normal; }
+  .editor-tools .ant-switch { min-width: 44px; height: 24px; }
+  .editor-tools .ant-switch.ant-switch-small .ant-switch-handle { top: 3px; width: 18px; height: 18px; }
+  .editor-tools .ant-switch.ant-switch-small.ant-switch-checked .ant-switch-handle { inset-inline-start: calc(100% - 21px); }
+  .editor-tools input, .ant-modal input, .ant-modal textarea { font-size: 16px; }
+  .editor-tools .ant-input-number { min-height: 44px; }
+  .editor-tools .ant-input-number-input { height: 42px; }
+  .editor-context-menu { position: fixed; left: 12px !important; right: 12px; top: auto !important; bottom: calc(var(--mobile-controls-height) + 8px + env(safe-area-inset-bottom)); max-height: calc(100dvh - 190px - env(safe-area-inset-top)); }
+  .editor-context-menu .ant-menu-item, .editor-context-menu .ant-menu-submenu-title { min-height: 44px; height: auto; line-height: 44px; }
+  .ant-menu-submenu-popup .ant-menu-item { min-height: 44px; line-height: 44px; }
+  .ant-modal { max-width: calc(100vw - 24px); margin: 12px auto; top: 0; padding-bottom: max(16px, env(safe-area-inset-bottom)); }
+  .ant-modal .ant-modal-container { padding: 20px 16px; max-height: calc(100dvh - 40px - env(safe-area-inset-top) - env(safe-area-inset-bottom)); display: flex; flex-direction: column; }
+  .ant-modal .ant-modal-header, .ant-modal .ant-modal-footer { flex-shrink: 0; }
+  .ant-modal .ant-modal-body { min-height: 0; flex: 1 1 auto; max-height: 65vh; max-height: 65dvh; overflow-y: auto; overscroll-behavior: contain; }
+  .ant-popover { max-width: calc(100vw - 16px); }
+  .editor-shell footer { display: none; }
+}

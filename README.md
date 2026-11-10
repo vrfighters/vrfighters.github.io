@@ -1,37 +1,9 @@
-## Welcome to GitHub Pages
+# 熊坑地图编辑器
 
-You can use the [editor on GitHub](https://github.com/vrfighters/vrfighters.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+奔奔王国／无尽冬日熊坑布局编辑器，支持建筑放置、名称与领域设置、模板保存和图片导出。
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+- `index.html`：页面入口。
+- `bwg-assets/`：编辑器脚本、样式、图片和运行依赖。
+- `tests/`：移动端与桌面浏览器回归测试，运行方式见 [测试说明](tests/README.md)。
 
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/vrfighters/vrfighters.github.io/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+这是静态站点，可通过 GitHub Pages 发布。仓库包含已编译的前端文件，没有对应的应用源工程；移动端适配逻辑单独保存在 `mobile-editor.js` 和 `mobile-editor.css` 中。分享等功能仍使用现有远端接口。
